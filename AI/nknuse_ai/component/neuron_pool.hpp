@@ -25,8 +25,6 @@ namespace nknuse::ai::component {
 		static void _Weight_Adjust(NeuronPool* _mainPool, Neuron* _ptrNeuron, const DataView<nfloat>& _inputs, nfloat _errValue, std::string& _str) {
 			if (fabs(_errValue) > _mainPool->Epsilon) {
 				auto lRate = _mainPool->LearningRate();
-				auto inputBeg = _inputs.begin();
-				auto inputEnd = _inputs.end() - 1;
 				auto& weights = _ptrNeuron->_Weights;
 				nknuse::common::CalcDualIteration(weights, _inputs, _Functor_AdjustWeight, _errValue * lRate);
 				if (_mainPool->FuncWriteWeights) {
