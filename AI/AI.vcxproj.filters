@@ -18,21 +18,27 @@
     <ClCompile Include="main.cpp">
       <Filter>來源檔案</Filter>
     </ClCompile>
-    <ClCompile Include="nknuse_ai\nknuse_ai.cpp">
+    <ClCompile Include="nknuse\ai\nknuse_ai.cpp">
       <Filter>來源檔案</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="nknuse_ai\component\neuron.hpp">
+    <ClInclude Include="nknuse\ai\component\neuron.hpp">
       <Filter>標頭檔</Filter>
     </ClInclude>
-    <ClInclude Include="nknuse_ai\lib_include.hpp">
+    <ClInclude Include="nknuse\ai\lib_include.hpp">
       <Filter>標頭檔</Filter>
     </ClInclude>
-    <ClInclude Include="nknuse_ai\nknuse_ai.hpp">
+    <ClInclude Include="nknuse\ai\nknuse_ai.hpp">
       <Filter>標頭檔</Filter>
     </ClInclude>
-    <ClInclude Include="nknuse_ai\component\neuron_pool.hpp">
+    <ClInclude Include="nknuse\ai\component\neuron_pool.hpp">
+      <Filter>標頭檔</Filter>
+    </ClInclude>
+    <ClInclude Include="nknuse\common.hpp">
+      <Filter>標頭檔</Filter>
+    </ClInclude>
+    <ClInclude Include="nknuse\hw\ai_20231002.hpp">
       <Filter>標頭檔</Filter>
     </ClInclude>
   </ItemGroup>
