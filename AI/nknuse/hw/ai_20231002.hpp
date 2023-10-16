@@ -51,7 +51,7 @@ namespace nknuse {
 			nfloat& LearningRate() { return this->Pool->LearningRate(); }
 			nfloat& Threshold() { return this->Pool->Threshold(); }
 
-			AI_20231002(size_t _countInput,nfloat _weightRange1, nfloat _weightRange2) : CountOfInput(_countInput) {
+			AI_20231002(size_t _countInput, nfloat _weightRange1, nfloat _weightRange2) : CountOfInput(_countInput) {
 				this->Pool = std::make_shared<NeuronPool>(_weightRange1, _weightRange2);
 			}
 
@@ -119,6 +119,11 @@ namespace nknuse {
 					record += "\n}\n";
 					std::fstream out(path, std::ios::out | std::ios::app);
 					out.write(record.c_str(), record.length());
+					auto res_beg = record.find("\nweight output");
+					auto res_end = record.rfind("}");
+					if (res_beg != std::string::npos && res_end != std::string::npos && res_end > res_beg) {
+						std::cout << record.substr(res_beg, res_end - res_beg) << std::endl;
+					}
 					out.close();
 					system("pause");
 				}

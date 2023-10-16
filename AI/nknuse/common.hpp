@@ -127,10 +127,10 @@ namespace nknuse {
 			}
 			template<class T>
 			static void _Print_SetValSucceed(const char* _valName, T inputVal) {
-				_Print_Multiple_Values("Message: ", _valName, " is been set to ", inputVal);
+				_Print_Multiple_Values("", "Message: ", _valName, " is been set to ", inputVal, "\n");
 			}
 			static void _Print_IsInvalidInput(const char* _valName) {
-				_Print_Multiple_Values("Message: Bad ", _valName, " input!, please try again!\n");
+				_Print_Multiple_Values("", "Message: Bad ", _valName, " input!, please try again!\n");
 			}
 			template<class T>
 			static void _Loop_Input_Argument(const char* _argName, bool(*_fnTrySet)(T&, const std::string&), T& _arg) {
@@ -172,14 +172,14 @@ namespace nknuse {
 	}
 
 	template<class T>
-	constexpr bool TryCastNumber(T& _num,const std::string& _str) {
+	constexpr bool TryCastNumber(T& _num, const std::string& _str) {
 		try {
 			_num = atof(_str.c_str());
 			return true;
 		}
-		catch (...) {			
+		catch (...) {
 			return false;
-		}		
+		}
 	}
 
 	template<class T>

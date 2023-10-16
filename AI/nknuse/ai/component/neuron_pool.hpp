@@ -11,13 +11,13 @@ namespace nknuse::ai::component {
 			auto rpre = round(pre * 10);
 			auto rnow = round(now * 10);
 			if (rpre == rnow)
-				AppendString(str, "\nweight ", counter, " : ", pre);
+				AppendString(str, "\nweight output ", counter, " : ", pre);
 			else {
 				std::string diffStr = rnow > rpre ? "+" : "";
 				diffStr += std::to_string((rnow - rpre) / 10);
-				AppendString(str, "\nweight ", counter, " : ", pre, " -> ", now, "(", diffStr, ")");
+				AppendString(str, "\nweight output ", counter, " : ", pre, " -> ", now, "(", diffStr, ")");
 			}
-				
+			counter++;
 		}
 		static void _Init_IfNeed(NeuronPool* _pool) {
 			if (!_pool) { return; }
