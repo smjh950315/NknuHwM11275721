@@ -1,4 +1,4 @@
-#include <nknuse_ai/nknuse_ai.hpp>
+#include "nknuse_ai/nknuse_ai.hpp"
 using namespace nknuse::ai::component;
 using namespace nknuse::ai;
 using namespace nknuse;
@@ -34,7 +34,7 @@ int main() {
 #define POSTIVE_ERR 1.0
 #define NEGTIVE_ERR -1.0
 #define GET_DIRECTION(value) ((abs(value) < MIN_VALUE_EPS) ? AS_ZERO_ERR : ((value>0.0)?POSTIVE_ERR:NEGTIVE_ERR))
-	NeuronPool pool(-0.5, 0.5);
+	
 	auto FuncGetErrorValue = [](nfloat val) {return GET_DIRECTION(val); };
 	auto FuncWriteErrorValueStr = [](nfloat err, std::string& str) {
 		str += "Error : ";
@@ -85,8 +85,9 @@ int main() {
 		};
 #define ACTIVE 1.0
 #define INACTIVE 0.0
-	static constexpr size_t CountInput = 8;
+	static constexpr size_t CountInput = 2;
 
+	NeuronPool pool(-0.5, 0.5);
 	pool.FuncGetErrorValue = FuncGetErrorValue;
 
 	pool.FuncWriteWeights = FuncWriteWeights;

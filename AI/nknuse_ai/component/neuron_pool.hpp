@@ -31,11 +31,9 @@ namespace nknuse::ai::component {
 					_mainPool->FuncWriteWeights(_ptrNeuron, _str);
 				}
 			}
-			std::string str{};
 			if (_mainPool->FuncWriteWeights) {
-				_mainPool->FuncWriteWeights(_ptrNeuron, str);
+				_mainPool->FuncWriteWeights(_ptrNeuron, _str);
 			}
-			std::cout << str;
 		}
 		static void _Run_Epoch(NeuronPool* _mainPool, Neuron* _ptrNeuron, Vec<TrainingData>* _trainData, std::string& strDisplay) {
 			_THROW_EX_NULLPTR(_mainPool->FuncGetErrorValue);
@@ -60,7 +58,6 @@ namespace nknuse::ai::component {
 				_Weight_Adjust(_mainPool, _ptrNeuron, i.GetInputView(), errorValue, strDisplay);
 				counter++;
 				strDisplay += "   \n";
-				std::cout << strDisplay;
 			}
 		}
 		SharedValueF _Threshold{};
