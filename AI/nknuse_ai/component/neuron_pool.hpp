@@ -31,7 +31,7 @@ namespace nknuse::ai::component {
 					_mainPool->FuncWriteWeights(_ptrNeuron, _str);
 				}
 			}
-			if (_mainPool->FuncWriteWeights) {
+			else if (_mainPool->FuncWriteWeights) {
 				_mainPool->FuncWriteWeights(_ptrNeuron, _str);
 			}
 		}
