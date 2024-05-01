@@ -10,6 +10,7 @@ namespace nknuse::ai::component {
 		FnSetResultF _FuncSetResult{};
 		Neuron(SharedValueF _th, SharedValueF _lr, FnSetResultF _fnCalc) :_Threshold(_th), _LearningRate(_lr), _FuncSetResult(_fnCalc) {}
 	public:
+		// 把output值設定為權重乘以輸入
 		static void CalcTotal(nfloat _weight, nfloat _input, nfloat& _resOutput) {
 			_resOutput += _weight * _input;
 		}
@@ -20,6 +21,7 @@ namespace nknuse::ai::component {
 		DataView<nfloat> GetWeightView() const {
 			return DataView<nfloat>(this->_Weights.data(), this->_Weights.size());
 		}
+		// 用這顆神經元的權重乘以輸入後取得加總結果
 		nfloat GetResult(const DataView<nfloat>& _inputs, std::string& _str) const {
 			_THROW_EX_BAD_INPUT_IF(_inputs.size() == 0);
 			_THROW_EX_NULLPTR(this->_FuncSetResult);

@@ -28,6 +28,7 @@ namespace nknuse::ai::component {
 				_pool->_Threshold = std::make_shared<nfloat>();
 			}
 		}
+		// 將輸入的浮點向量內的浮點數賦予隨機值
 		static void _Rand_Vec_Init(Vec<nfloat>* _ptrVec, nfloat _randMin, nfloat _randMax, size_t _decimal) {
 			if (!_ptrVec) { return; }
 			auto& vals = *_ptrVec;
@@ -35,6 +36,7 @@ namespace nknuse::ai::component {
 				val = nknuse::common::Numeric::Random(_randMin, _randMax, _decimal);
 			}
 		}
+		// 調整權重
 		static void _Weight_Adjust(NeuronPool* _mainPool, Neuron* _ptrNeuron, const DataView<nfloat>& _inputs, nfloat _errValue, std::string& _str) {
 			if (fabs(_errValue) > _mainPool->Epsilon) {
 				auto lRate = _mainPool->LearningRate();
@@ -79,8 +81,11 @@ namespace nknuse::ai::component {
 			size_t counterW{};
 			common::CalcDualIteration(prevWeight, weightView2, _Log_Weight_Difference, counterW, strDisplay);
 		}
+		// 閥值
 		SharedValueF _Threshold{};
+		// 學習率
 		SharedValueF _LearningRate{};
+		// 神經元的群集
 		Vec<Neuron> _Neurons{};
 	public:
 		nfloat& Threshold() {
